@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     private $categories; 
     public function save(Request $req){
-
+ 
         $data = $req->validate([
             "code"=>'required',
             "name"=>'required',
