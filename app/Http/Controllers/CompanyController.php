@@ -14,11 +14,7 @@ class CompanyController extends Controller
             'address'=>'required',
             'tin'=>'required'
         ]);
-        if ($req->id) {  
-            $comp = Company::find(1);
-        }else{
-            $comp = new Company;
-        }   
+        $comp = Company::find(1);
          
         $comp->name = $req->name;
         $comp->address = $req->address;
@@ -29,6 +25,11 @@ class CompanyController extends Controller
     }
     public function show(){
         return Company::all();  
+    }
+    public function delete(Request $req){ 
+        $products = Company::find($req->id);
+         
+        $products->delete();
     }
 
 }
