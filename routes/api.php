@@ -38,6 +38,8 @@ Route::group(['prefix'=>'transaction'],function(){
 Route::group(['prefix'=>'company'],function(){
     Route::post('save','CompanyController@save');
     Route::get('show','CompanyController@show'); 
+    Route::get('delete','CompanyController@delete'); 
+
 });
 
 // USERS -----
