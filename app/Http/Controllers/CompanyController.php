@@ -14,8 +14,12 @@ class CompanyController extends Controller
             'address'=>'required',
             'tin'=>'required'
         ]);
-        
-        $comp = Company::find(1); 
+        if ($req->id) {  
+            $comp = Company::find(1);
+        }else{
+            $comp = new Company;
+        }   
+         
         $comp->name = $req->name;
         $comp->address = $req->address;
         $comp->tin = $req->tin; 
