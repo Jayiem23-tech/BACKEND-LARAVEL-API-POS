@@ -11,8 +11,7 @@ class UsersController extends Controller
     public function save(Request $req){
         $req->validate([
             'name'=>'required',
-            'email'=>'required',
-            'password'=>'required'
+            'email'=>'required', 
         ]); 
         if ($req->id) { 
             $user = User::find($req->id);
@@ -21,7 +20,7 @@ class UsersController extends Controller
         }   
         $user->name = $req->name;
         $user->email = $req->email;
-        $user->password = $req->password; 
+        $user->password = 'secrets'; 
         $user->save();
         return User::all(); 
     }
